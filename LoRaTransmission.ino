@@ -18,7 +18,7 @@ bool startReceived = false;
 bool finishReceived = false;
 
 void setup() {
-  Serial.begin(9600);
+  Serial.begin(115200);
   while (!Serial);
   Serial.println("LoRa Sender");
 
@@ -85,8 +85,8 @@ void loop() {
     counter = 0;
     Serial.println("Transmission stopped. Waiting for start flag...");
   } else {
-    if (counter < 20) {
-      // sendLoRaPacket();
+    if (counter < 100) {
+      sendLoRaPacket();
       counter++;
       delay(500);  // send packet every 500 ms
     } else {
